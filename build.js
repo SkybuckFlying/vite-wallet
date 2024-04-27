@@ -12,14 +12,14 @@ const no_build = process.env.NO_BUILD === 'true';
 
 
 const startBuild = async () => {
-    traversing(appPath, (fPath, folderLevel, next) => { 
+    traversing(appPath, (fPath, folderLevel, next) => {
         let stats = fs.statSync(fPath);
-    
+
         if (stats.isDirectory()) {
             next(fPath, folderLevel + '../');
             return;
         }
-    
+
         if (stats.isFile()) {
             formatFile(fPath, folderLevel);
         }
@@ -28,7 +28,7 @@ const startBuild = async () => {
     copyIcon();
     writePackage();
     if (!no_build) {
-        let target = process.env.p === 'WIN' ? electronBuilder.Platform.WINDOWS : electronBuilder.Platform.MAC;
+        let target = electronBuilder.Platform.WINDOWS;
         electronBuilder.build({
             targets: electronBuilder.createTargets([
                 target
@@ -77,13 +77,13 @@ function formatFile(filePath, folderLevel) {
     fs.writeFileSync(filePath, file.replace(/(~app\/)/g, folderLevel), 'utf8');
 }
 
-function writePackage() {	
-    let packageFile = require('./package.json');	
+function writePackage() {
+    let packageFile = require('./package.json');
 
-    packageFile.main = 'main.js';	
-    let build = require('./electron.build.json');	
-    packageFile.build = build;	
-    fs.writeFileSync('./app/package.json', JSON.stringify(packageFile), 'utf8');	
+    packageFile.main = 'main.js';
+    let build = require('./electron.build.json');
+    packageFile.build = build;
+    fs.writeFileSync('./app/package.json', JSON.stringify(packageFile), 'utf8');
 }
 
 function copyIcon() {
@@ -118,7 +118,7 @@ function copyFolder (currentPath, targetPath) {
         return;
     }
     !fs.existsSync(targetPath) && fs.mkdirSync(targetPath);
-    
+
     traversing(currentPath, (fPath, targetPath, next, val) => {
         let stats = fs.statSync(fPath);
         let toPath = path.join(targetPath, val);
