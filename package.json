@@ -1,68 +1,70 @@
 {
-    "name": "vite-wallet",
-    "version": "1.7.0",
-    "main": "app/main.js",
-    "description": "The Desktop app for vite.",
-    "author": "Vitelabs",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/vitelabs/vite-wallet.git"
-    },
-    "scripts": {
-        "clean": "rm -rf ./app/walletPages*",
-        "build": "FORCE_COLOR=1 gulp && FORCE_COLOR=1 NODE_ENV=prod node build.js",
-        "builddev": "gulp && NODE_ENV=dev node build.js",
-        "build:win": "FORCE_COLOR=1 p=WIN npm run build",
-        "build:web": "npm run build:web:test && npm run build:web:prod",
-        "build:web:prod": "cd vite-web-wallet && npm run build && cd ../ && cp -rf vite-web-wallet/dist/ app/walletPages",
-        "build:web:test": "cd vite-web-wallet && npm run testBuild && cd ../ && cp -rf vite-web-wallet/dist/ app/walletPages-test",
-        "dev": "NO_BUILD=true npm run builddev && NODE_ENV=dev HOT_RELOAD=true electron .",
-        "dev:nohot": "NO_BUILD=true npm run builddev && NODE_ENV=dev electron .",
-        "test": "mocha",
-        "lint": "eslint ./ --cache",
-        "devd": "gulp",
-        "release:mac": "FORCE_COLOR=1 npm run build",
-        "release:win": "FORCE_COLOR=1 npm run build:win",
-        "release": "FORCE_COLOR=1 node release.js",
-        "commit": "cz",
-        "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -s -r 2"
-    },
-    "devDependencies": {
-        "@babel/core": "^7.12.3",
-        "@babel/preset-env": "^7.12.1",
-        "babel-eslint": "^10.1.0",
-        "babel-preset-es2016-node5": "^1.1.2",
-        "commitizen": "^4.2.2",
-        "cz-conventional-changelog": "3.3.0",
-        "dotenv": "^8.2.0",
-        "electron": "^11.1.1",
-        "electron-builder": "^22.9.1",
-        "electron-notarize": "^1.0.0",
-        "eslint": "~7.12.1",
-        "eslint-plugin-vue": "~7.1.0",
-        "event-pubsub": "^5.0.3",
-        "execa": "^5.0.0",
-        "gulp": "^4.0.2",
-        "gulp-babel": "^8.0.0",
-        "inquirer": "^7.3.3",
-        "js-queue": "^2.0.0",
-        "mocha": "^8.2.0",
-        "shelljs": "^0.8.4"
-    },
-    "dependencies": {
-        "@trodi/electron-splashscreen": "^1.0.0",
-        "auto-launch": "^5.0.5",
-        "electron-log": "^4.2.4",
-        "electron-serve": "^1.0.0",
-        "electron-store": "^6.0.1",
-        "electron-updater": "^4.3.5",
-        "moment": "^2.29.1",
-        "nvexeca": "^6.0.1",
-        "semver": "^7.3.2"
-    },
-    "config": {
-        "commitizen": {
-            "path": "./node_modules/cz-conventional-changelog"
-        }
+  "name": "vite-wallet",
+  "version": "1.7.0",
+  "main": "app/main.js",
+  "description": "The Desktop app for vite.",
+  "author": "Vitelabs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vitelabs/vite-wallet.git"
+  },
+  "scripts": {
+    "clean": "rimraf ./app/walletPages*",
+    "build": "cross-env FORCE_COLOR=1 gulp && cross-env FORCE_COLOR=1 NODE_ENV=prod node build.js",
+    "builddev": "gulp && cross-env NODE_ENV=dev node build.js",
+    "build:win": "cross-env FORCE_COLOR=1 p=WIN npm run build",
+    "build:web": "npm run build:web:test && npm run build:web:prod",
+    "build:web:prod": "cd vite-web-wallet && npm run build && cd ../ && rimraf app/walletPages && mkdir app/walletPages && cp -Rf vite-web-wallet/dist/* app/walletPages/",
+    "build:web:test": "cd vite-web-wallet && npm run testBuild && cd ../ && rimraf app/walletPages-test && mkdir app/walletPages-test && cp -Rf vite-web-wallet/dist/* app/walletPages-test/",
+    "dev": "NO_BUILD=true npm run builddev && cross-env NODE_ENV=dev HOT_RELOAD=true electron .",
+    "dev:nohot": "NO_BUILD=true npm run builddev && cross-env NODE_ENV=dev electron .",
+    "test": "mocha",
+    "lint": "eslint ./ --cache",
+    "devd": "gulp",
+    "release:mac": "cross-env FORCE_COLOR=1 npm run build",
+    "release:win": "cross-env FORCE_COLOR=1 npm run build:win",
+    "release": "cross-env FORCE_COLOR=1 node release.js",
+    "commit": "cz",
+    "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -s -r 2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "babel-eslint": "^10.1.0",
+    "babel-preset-es2016-node5": "^1.1.2",
+    "commitizen": "^4.2.2",
+    "cz-conventional-changelog": "3.3.0",
+    "dotenv": "^8.2.0",
+    "electron": "^11.1.1",
+    "electron-builder": "^22.9.1",
+    "electron-notarize": "^1.0.0",
+    "eslint": "~7.12.1",
+    "eslint-plugin-vue": "~7.1.0",
+    "event-pubsub": "^5.0.3",
+    "execa": "^5.0.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "inquirer": "^7.3.3",
+    "js-queue": "^2.0.0",
+    "mocha": "^8.2.0",
+    "rimraf": "^3.0.2",
+    "shelljs": "^0.8.4",
+    "cross-env": "^7.0.3"
+  },
+  "dependencies": {
+    "@trodi/electron-splashscreen": "^1.0.0",
+    "auto-launch": "^5.0.5",
+    "electron-log": "^4.2.4",
+    "electron-serve": "^1.0.0",
+    "electron-store": "^6.0.1",
+    "electron-updater": "^4.3.5",
+    "moment": "^2.29.1",
+    "nvexeca": "^6.0.1",
+    "semver": "^7.3.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
+  }
 }
