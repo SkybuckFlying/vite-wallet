@@ -19,6 +19,8 @@ The Vite Desktop Wallet supports Mac and Windows. [Download and install](https:/
 
 This project requires the [vite-web-wallet](https://github.com/vitelabs/vite-web-wallet). You need init submodules first.
 
+(Must be logged into to github for these commands to work):
+
 ```
 git submodule init
 git submodule update
@@ -29,7 +31,8 @@ git submodule update
 Install dependencies
 
 ```bash
-yarn
+yarn install
+yarn dev
 ```
 
 Install the dependencies of vite-web-wallet
