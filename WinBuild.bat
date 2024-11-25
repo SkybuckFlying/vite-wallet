@@ -11,13 +11,13 @@ call WinClean.bat
 @echo.
 
 @echo.
-@echo ### Part 2: Execute WinGulp.bat ###
-call WinGulp.bat
+@echo ### Part 2: Execute WinCopy.bat ###
+call WinCopy.bat
 @echo.
 
 @echo.
-@echo ### Part 3: Execute WinCopy.bat ###
-call WinCopy.bat
+@echo ### Part 3: Execute WinGulp.bat ###
+call WinGulp.bat
 @echo.
 
 @echo.

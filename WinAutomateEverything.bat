@@ -1,0 +1,3 @@
+call WinInitAndUpdateSubModule.bat
+call WinBuildSubModule.bat
+call WinBuild.bat

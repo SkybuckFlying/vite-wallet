@@ -25,7 +25,9 @@
         "release:win": "FORCE_COLOR=1 npm run build:win",
         "release": "FORCE_COLOR=1 node release.js",
         "commit": "cz",
-        "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -s -r 2"
+        "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -s -r 2",
+        "build:w11": "node build.js",
+        "show-env": "node showEnv.js"
     },
     "devDependencies": {
         "@babel/core": "^7.12.3",
