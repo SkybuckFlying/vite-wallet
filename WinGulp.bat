@@ -9,5 +9,5 @@ set FORCE_COLOR=1
 echo %FORCE_COLOR%
 
 @echo Executing command to run: yarn gulp:
-@echo yarn gulp
-yarn gulp
+@echo call yarn gulp
+call yarn gulp

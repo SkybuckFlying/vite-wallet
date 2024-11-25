@@ -1,10 +1,5 @@
 @echo off
 
-cls
-@echo.
-@echo ### Part 0: Cleaning the screen ###
-@echo.
-
 @echo.
 @echo ### Part 1: Execute WinClean.bat ###
 call WinClean.bat
@@ -16,12 +11,17 @@ call WinCopy.bat
 @echo.
 
 @echo.
-@echo ### Part 3: Execute WinGulp.bat ###
+@echo ### Part 3: Execute WinInstall.bat ###
+call WinInstall.bat
+@echo.
+
+@echo.
+@echo ### Part 4: Execute WinGulp.bat ###
 call WinGulp.bat
 @echo.
 
 @echo.
-@echo ### Part 4: Execute WinNode.bat ###
+@echo ### Part 5: Execute WinNode.bat ###
 call WinNode.bat
 @echo.
 
