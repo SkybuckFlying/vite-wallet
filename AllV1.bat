@@ -1,6 +1,6 @@
 git clone https://github.com/SkybuckFlying/SkyViteXDesktopWallet.git 
 cd SkyViteXDesktopWallet
-git checkout 794ef9c0f6f2e70ea9c905b9a53ff33f639e675a
+git checkout 6129609f9646dbc5d47f760a77da08251129fee4
 git submodule init
 git submodule update
 cd vite-web-wallet
