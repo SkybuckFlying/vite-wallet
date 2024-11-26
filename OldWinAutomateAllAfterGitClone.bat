@@ -1,0 +1,3 @@
+call OldWinInitAndUpdateSubModule.bat
+call OldWinBuildSubModule.bat
+call OldWinBuildMain.bat
