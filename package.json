@@ -1,16 +1,57 @@
 {
     "name": "vite-wallet",
-    "version": "1.7.0",
+    "version": "1.7.1",
     "main": "app/main.js",
     "description": "The Desktop app for vite.",
     "author": "Vitelabs",
+    "contributors": [
+        {
+            "name": "Skybuck Flying",
+            "email": "skybuck2000@hotmail.com",
+            "url": "https://github.com/SkybuckFlying/SkyViteXDesktopWallet"
+        }
+    ],
+    "license": "ISC",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/vitelabs/vite-wallet.git"
     },
     "scripts": {
+        "nodebuild:unix": "cross-env FORCE_COLOR=1 platform=UNIX NODE_ENV=prod node build.js",
+        "nodebuild:windows": "cross-env FORCE_COLOR=1 platform=WIN NODE_ENV=prod node build.js",
+        "npmbuild:unix": "npm run nodebuild:unix",
+        "npmbuild:windows": "npm run nodebuild:windows",
+        "step01comment": "echo step01: add cross env tool to folder node modules dot bin",
+        "step02comment": "echo step02: submodule init",
+        "step03comment": "echo step03: submodule update",
+        "step04comment": "echo step04: change to submodule folder",
+        "step05comment": "echo step05: install dependencies for submodule",
+        "step06comment": "echo step06: build submodule",
+        "step07comment": "echo step07: back to main folder",
+        "step08comment": "echo step08: install dependencies for main",
+        "step09comment": "echo step09: clean app walletPages folder",
+        "step10comment": "echo step10: run gulp to create app folder",
+        "step11comment": "echo step11: copy submodule dist folder to app walletPages folder",
+        "step12comment:unix": "echo step13:unix: build main",
+        "step12comment:windows": "echo step13:windows: build main",
+        "step01": "yarn add cross-env --dev",
+        "step02": "git submodule init",
+        "step03": "git submodule update",
+        "step04": "cd vite-web-wallet&&yarn install&&yarn build&&cd ..",
+        "step05": "echo step05 already performed in step 04",
+        "step06": "echo step06 already performed in step 04",
+        "step07": "echo step07 already performed in step 04",
+        "step08": "yarn install",
+        "step09": "rm -rf ./app/walletPages*",
+        "step10": "cross-env FORCE_COLOR=1&&gulp",
+        "step11": "cp -rf vite-web-wallet/dist/ app/walletPages",
+        "step12:unix": "yarn run npmbuild:unix",
+        "step12:windows": "yarn run npmbuild:windows",
+        "automate:all:unix": "yarn run step01comment&&yarn run step01&&yarn run step02comment&&yarn run step02&&yarn run step03comment&&yarn run step03&&yarn run step04comment&&yarn run step04&&yarn run step05comment&&yarn run step05&&yarn run step06comment&&yarn run step06&&yarn run step07comment&&yarn run step07&&yarn run step08comment&&yarn run step08&&yarn run step09comment&&yarn run step09&&yarn run step10comment&&yarn run step10&&yarn run step11comment&&yarn run step11&&yarn run step12comment:unix&&yarn run step12:unix",
+        "automate:all:windows": "yarn run step01comment&&yarn run step01&&yarn run step02comment&&yarn run step02&&yarn run step03comment&&yarn run step03&&yarn run step04comment&&yarn run step04&&yarn run step05comment&&yarn run step05&&yarn run step06comment&&yarn run step06&&yarn run step07comment&&yarn run step07&&yarn run step08comment&&yarn run step08&&yarn run step09comment&&yarn run step09&&yarn run step10comment&&yarn run step10&&yarn run step11comment&&yarn run step11&&yarn run step12comment:windows&&yarn run step12:windows",
+        "automate:all:mac": "yarn run automate:all:unix",
         "clean": "rm -rf ./app/walletPages*",
-        "build": "FORCE_COLOR=1 gulp && FORCE_COLOR=1 NODE_ENV=prod node build.js",
+        "fuckyou:its-buildin-yarn-command-you-fucking-idiots:build:": "FORCE_COLOR=1 gulp && FORCE_COLOR=1 NODE_ENV=prod node build.js",
         "builddev": "gulp && NODE_ENV=dev node build.js",
         "build:win": "FORCE_COLOR=1 p=WIN npm run build",
         "build:web": "npm run build:web:test && npm run build:web:prod",
@@ -25,7 +66,15 @@
         "release:win": "FORCE_COLOR=1 npm run build:win",
         "release": "FORCE_COLOR=1 node release.js",
         "commit": "cz",
-        "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -s -r 2"
+        "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -s -r 2",
+
+        "windows:batchfiles:nodebuild:windows": "set FORCE_COLOR=1&&set platform=WIN&&set NODE_ENV=prod&&node build.js",
+        "windows:batchfiles:npmbuild:windows": "npm run windows:batchfiles:nodebuild:windows",
+
+        "build:w11": "node build.js",
+        "set-env-test": "cross-env FORCE_COLOR=1 platform=WIN NODE_ENV=prod",
+        "check-env-test": "node showEnv.js",
+        "show-env": "cross-env FORCE_COLOR=1 platform=WIN NODE_ENV=prod node showEnv.js"
     },
     "devDependencies": {
         "@babel/core": "^7.12.3",
@@ -33,6 +82,7 @@
         "babel-eslint": "^10.1.0",
         "babel-preset-es2016-node5": "^1.1.2",
         "commitizen": "^4.2.2",
+        "cross-env": "^7.0.3",
         "cz-conventional-changelog": "3.3.0",
         "dotenv": "^8.2.0",
         "electron": "^11.1.1",
@@ -52,13 +102,13 @@
     "dependencies": {
         "@trodi/electron-splashscreen": "^1.0.0",
         "auto-launch": "^5.0.5",
-        "electron-log": "^4.2.4",
+        "electron-log": "^4.4.8",
         "electron-serve": "^1.0.0",
         "electron-store": "^6.0.1",
-        "electron-updater": "^4.3.5",
+        "electron-updater": "^6.3.9",
         "moment": "^2.29.1",
         "nvexeca": "^6.0.1",
-        "semver": "^7.3.2"
+        "semver": "^7.6.2"
     },
     "config": {
         "commitizen": {
