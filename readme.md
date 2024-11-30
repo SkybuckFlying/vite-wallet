@@ -15,6 +15,47 @@ The Vite Desktop Wallet supports Mac and Windows. [Download and install](https:/
 
 ## Development
 
+## Required/recommended software to start with:
+
+Download and install git. (distributed version control system)
+
+Download and install nvm. (nodejs version manager)
+
+Install a nodejs version which works, either version 18 or version 20 and higher. (versions below 18 and version 19 don't work).
+
+First nodejs must be installed, and then yarn must be installed, yarn might also need python so beware, probably python version 3.
+
+Example how to install nodejs version 20.x.x using nvm
+```
+nvm install 20
+nvm use 20.x.x
+npm install yarn
+```
+
+### Automatic Build:
+
+When on windows:
+```
+WinAutomateAllAfterGitClone.bat
+```
+
+When inside bash/linux/unix (emulation), target windows:
+```
+yarn run automate:all:windows
+```
+
+When inside bash/linux/unix (emulation), target mac:
+```
+yarn run automate:all:mac
+```
+
+When inside bash/linux/unix (emulation), target unix/mac:
+```
+yarn run automate:all:unix
+```
+
+### Manual build:
+
 ### Init submodule
 
 This project requires the [vite-web-wallet](https://github.com/vitelabs/vite-web-wallet). You need init submodules first.
