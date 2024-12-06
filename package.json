@@ -101,7 +101,7 @@
     },
     "dependencies": {
         "@trodi/electron-splashscreen": "^1.0.0",
-        "auto-launch": "^5.0.5",
+        "auto-launch": "^5.0.6",
         "electron-log": "^4.4.8",
         "electron-serve": "^1.0.0",
         "electron-store": "^6.0.1",
