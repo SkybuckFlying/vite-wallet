@@ -100,7 +100,7 @@
         "shelljs": "^0.8.4"
     },
     "dependencies": {
-        "@trodi/electron-splashscreen": "^1.0.0",
+        "@trodi/electron-splashscreen": "^1.0.2",
         "auto-launch": "^5.0.5",
         "electron-log": "^4.4.8",
         "electron-serve": "^1.0.0",
